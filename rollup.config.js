@@ -1,7 +1,7 @@
 import buble from 'rollup-plugin-buble';
 
 export default {
-  entry: 'index.js',
+  entry: './src/index.js',
   format: 'umd',
   moduleName: 'Pisces',
   plugins: [buble()],
