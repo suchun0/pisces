@@ -1,0 +1,28 @@
+{
+  "name": "pisces",
+  "version": "0.0.1",
+  "description": "Scroll to specific locations of any scrolling box in a smooth fashion.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/noeldelgado/pisces.git"
+  },
+  "keywords": [
+    "scroll",
+    "smooth",
+    "scrolling",
+    "animation",
+    "animate",
+    "scrollto",
+    "smooth scroll"
+  ],
+  "author": "Noel Delgado <auhcsei@gmail.com> (http://pixelia.me)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/noeldelgado/pisces/issues"
+  },
+  "homepage": "https://github.com/noeldelgado/pisces#readme"
+}
