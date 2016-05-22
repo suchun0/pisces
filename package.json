@@ -1,6 +1,6 @@
 {
   "name": "pisces",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Scroll to specific locations of any scrolling box in a smooth fashion.",
   "main": "lib/index.js",
   "scripts": {
