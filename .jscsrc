@@ -1,0 +1,8 @@
+{
+  "preset": "airbnb",
+  "maxErrors": -1,
+  "excludeFiles": [
+    "node_modules/**",
+    ".git/**"
+  ]
+}
