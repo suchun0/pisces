@@ -8,17 +8,12 @@ export default class Pisces {
     return { duration, easing, callback };
   }
 
-  constructor(scrollingBox = util.getRoot(), options = {}) {
-    this.scrollingBox = scrollingBox;
-    this.options = Object.assign({}, Pisces.defaults(), options);
-  }
-
-  _getStart() {
+  get start() {
     const { scrollLeft, scrollTop } = this.scrollingBox;
     return { x: scrollLeft, y: scrollTop };
   }
 
-  _getMax() {
+  get max() {
     const el = this.scrollingBox;
     let x;
     let y;
@@ -31,6 +26,11 @@ export default class Pisces {
     }
 
     return { x, y };
+  }
+
+  constructor(scrollingBox = util.getRoot(), options = {}) {
+    this.scrollingBox = scrollingBox;
+    this.options = Object.assign({}, Pisces.defaults(), options);
   }
 
   _animate(coords, options = {}) {
@@ -65,7 +65,7 @@ export default class Pisces {
     return 0;
   }
 
-  scrollTo(target = null, options = {}) {
+  scrollTo(target = null, options) {
     const ERROR_MESSAGE = 'target param should be a HTMLElement or and ' +
       'object formatted as: {x: Number, y: Number}';
 
@@ -92,8 +92,8 @@ export default class Pisces {
   }
 
   scrollToElement(element, options) {
-    const start = this._getStart();
-    const max = this._getMax();
+    const start = this.start;
+    const max = this.max;
     const end = (function (el) {
       let { top, left } = el.getBoundingClientRect();
       if (!util.isBody(el.offsetParent)) {
@@ -111,7 +111,7 @@ export default class Pisces {
   }
 
   scrollToPosition(coords, options) {
-    const start = this._getStart();
+    const start = this.start;
     let x = (coords.hasOwnProperty('x')) ? coords.x : start.x;
     let y = (coords.hasOwnProperty('y')) ? coords.y : start.y;
     x = this._getEndCoordinateValue(x, start.x);
@@ -121,27 +121,27 @@ export default class Pisces {
   }
 
   scrollToTop(options) {
-    const start = this._getStart();
+    const start = this.start;
     const end = { x: 0, y: -(start.y) };
     return this._animate({ start, end }, options);
   }
 
   scrollToBottom(options) {
-    const start = this._getStart();
-    const max = this._getMax();
+    const start = this.start;
+    const max = this.max;
     const end =  { x: 0, y: (max.y - start.y) };
     return this._animate({ start, end }, options);
   }
 
   scrollToLeft(options) {
-    const start = this._getStart();
+    const start = this.start;
     const end =  { x: -(start.x), y: 0 };
     return this._animate({ start, end }, options);
   }
 
   scrollToRight(options) {
-    const start = this._getStart();
-    const max = this._getMax();
+    const start = this.start;
+    const max = this.max;
     const end =  { x: (max.x - start.x), y: 0 };
     return this._animate({ start, end }, options);
   }
