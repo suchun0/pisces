@@ -87,7 +87,7 @@ It should be a hash with an `x` and/or `y` key(s).
 
 If you pass an options hash, it will use that options just for this iteration without overriding the defaults.
 
-### pisces.scrollToTop()
+### pisces.scrollToTop([options])
 
 Scrolls to the top position of the scrollingBox.
 
@@ -95,7 +95,9 @@ Scrolls to the top position of the scrollingBox.
 pisces.scrollToTop();
 ```
 
-### pisces.scrollToRight()
+If you pass an options hash, it will use that options just for this iteration without overriding the defaults.
+
+### pisces.scrollToRight([options])
 
 Scrolls to the far right position of the scrollingBox.
 
@@ -103,7 +105,9 @@ Scrolls to the far right position of the scrollingBox.
 pisces.scrollToRight();
 ```
 
-### pisces.scrollToBottom()
+If you pass an options hash, it will use that options just for this iteration without overriding the defaults.
+
+### pisces.scrollToBottom([options])
 
 Scrolls to the bottom position of the scrollingBox.
 
@@ -111,13 +115,17 @@ Scrolls to the bottom position of the scrollingBox.
 pisces.scrollToBottom();
 ```
 
-### pisces.scrollToLeft()
+If you pass an options hash, it will use that options just for this iteration without overriding the defaults.
+
+### pisces.scrollToLeft([options])
 
 Scrolls to the far left position of the scrollingBox.
 
 ```js
 pisces.scrollToLeft();
 ```
+
+If you pass an options hash, it will use that options just for this iteration without overriding the defaults.
 
 ### pisces.set(key, value)
 
