@@ -60,7 +60,7 @@ export default class Pisces {
   }
 
   _getEndCoordinateValue(coord, start) {
-    if (util.isNumber(coord)) return (coord - start);
+    if (util.isNumber(coord)) return (Number(coord) - start);
     else if (util.isRelativeValue(coord)) return (start - (start - ~~coord));
     return 0;
   }

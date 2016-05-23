@@ -1,5 +1,6 @@
 const BODY = document.body;
 const relativeValueReg = new RegExp(/^(\-|\+)\d/);
+const numberReg = new RegExp(/^\d*\.?\d*$/);
 
 export function getRoot() {
   /* Copyright (c) 2016 Benjamin De Cock
@@ -31,7 +32,7 @@ export function isUndefined(value) {
 }
 
 export function isNumber(value) {
-  return (typeof value === 'number');
+  return ((typeof value === 'number') || numberReg.test(value));
 }
 
 export function isObject(value) {

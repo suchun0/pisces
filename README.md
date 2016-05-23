@@ -18,7 +18,7 @@ const pisces = new Pisces();
 
 pisces.scrollToElement(document.querySelector('.some-element'));
 pisces.scrollToPosition({y: 100});
-pisces.scrollToPosition({x: '-=10', y: '+=300'});
+pisces.scrollToPosition({x: '-10', y: '+300'});
 pisces.scrollToBottom();
 ```
 
@@ -75,10 +75,10 @@ Scrolls to a specific `x`, `y` position of the scrollingBox. It can be a fixed v
 pisces.scrollToPosition({x: 100, y: 100});
 
 // relative
-pisces.scrollToPosition({x: '+=100', y: '-=100'});
+pisces.scrollToPosition({x: '+100', y: '-100'});
 
 // mixed
-pisces.scrollToPosition({x: 100, y: '-=100'});
+pisces.scrollToPosition({x: 100, y: '-100'});
 ```
 
 The `coordinates` params is required.
