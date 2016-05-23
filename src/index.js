@@ -94,18 +94,16 @@ export default class Pisces {
   scrollToElement(element, options) {
     const start = this.start;
     const max = this.max;
-    const end = (function (el) {
+    const end = (function (el, _this) {
       let { top, left } = el.getBoundingClientRect();
-      if (!util.isBody(el.offsetParent)) {
-        const parentBounds = el.parentElement.getBoundingClientRect();
-        top = (top - parentBounds.top);
-        left = (left - parentBounds.left);
-      }
+
+      top -= _this.scrollingBox.offsetTop;
+      left -= _this.scrollingBox.offsetLeft;
 
       const x = (start.x + left < max.x) ? left : (max.x - start.x);
       const y = (start.y + top < max.y) ? top : (max.y - start.y);
       return { x, y };
-    })(element);
+    })(element, this);
 
     return this._animate({ start, end }, options);
   }
