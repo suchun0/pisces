@@ -24,7 +24,7 @@ export function isString(value) {
 }
 
 export function isNull(value) {
-  return (typeof value === null);
+  return value === null;
 }
 
 export function isUndefined(value) {
