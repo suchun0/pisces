@@ -141,6 +141,14 @@ pisces.set('callback', someCallbackToRunOnComplete);
 
 Stops the animation loop.
 
+### pisces.getElementOffset(DOMElement)
+
+Returns a hash with the position of the passed `DOMElement` relative to the instance’s `scrollingBox` scroll position or `false` in case the `scrollingBox` does not contains the passed `DOMElement`.
+
+This can be useful in cases where you have a fixed header (or some other fixed element) and you do not want to scroll underneath it.
+
+In case the passed `DOMElement` is inside the instance’s `scrollingBox` it will return a hash with an `x` and `y` keys, e.g. `{ x: <number>, y: <number> }`, then you can use those values to call the `scrollToPosition` method subtracting your fixed element height/width. 
+
 ## Examples
 
 ### Provide a different easing function
