@@ -93,8 +93,8 @@ export default class Pisces {
 
   scrollToElement(el, options) {
     const start = this.start;
-    const max = this.max;
-    const end = { x: (el.offsetLeft - start.x), y: (el.offsetTop - start.y) };
+    const end = this.getElementOffset(el);
+    if (!end) return;
     return this._animate({ start, end }, options);
   }
 
@@ -142,5 +142,24 @@ export default class Pisces {
   cancel() {
     this._RAF = cancelAnimationFrame(this._RAF);
     return this;
+  }
+
+  getElementOffset(el) {
+    if (!util.isBody(el) && !this.scrollingBox.contains(el)) {
+      console.error('scrollingBox does not contains element');
+      return false;
+    }
+
+    const start = this.start;
+    let e = el;
+    let _top = 0;
+    let _left = 0;
+    do {
+      _left += e.offsetLeft;
+      _top += e.offsetTop;
+      e = e.parentElement;
+    } while (e !== this.scrollingBox);
+
+    return { x: (_left - start.x), y: (_top - start.y) };
   }
 };
