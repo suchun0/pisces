@@ -1,7 +1,7 @@
 # pisces
 
 [![npm-image](https://img.shields.io/npm/v/pisces.svg?style=flat-square)](https://www.npmjs.com/package/pisces)
-
+![license-image](https://img.shields.io/npm/l/pisces.svg?style=flat-square)
 
 Scroll to specific locations of any scrolling box in a smooth fashion.
 
