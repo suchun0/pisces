@@ -1,7 +1,7 @@
 # pisces
 
-[![npm-image](https://img.shields.io/npm/v/pisces.svg?style=flat-square)](https://www.npmjs.com/package/pisces)
-![license-image](https://img.shields.io/npm/l/pisces.svg?style=flat-square)
+[![npm-image](https://img.shields.io/npm/v/pisces.svg)](https://www.npmjs.com/package/pisces)
+![license-image](https://img.shields.io/npm/l/pisces.svg)
 
 Scroll to specific locations of any scrolling box in a smooth fashion.
 
@@ -147,7 +147,7 @@ Returns a hash with the position of the passed `DOMElement` relative to the inst
 
 This can be useful in cases where you have a fixed header (or some other fixed element) and you do not want to scroll underneath it.
 
-In case the passed `DOMElement` is inside the instance’s `scrollingBox` it will return a hash with an `x` and `y` keys, e.g. `{ x: <number>, y: <number> }`, then you can use those values to call the `scrollToPosition` method subtracting your fixed element height/width. 
+In case the passed `DOMElement` is inside the instance’s `scrollingBox` it will return a hash with an `x` and `y` keys, e.g. `{ x: <number>, y: <number> }`, then you can use those values to call the `scrollToPosition` method subtracting your fixed element height/width.
 
 ## Examples
 
