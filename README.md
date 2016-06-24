@@ -189,5 +189,28 @@ pisces.scrollTo('.target', {
 
 ```
 
+### Using it with [gemini-scrollbar]
+
+```js
+import Pisces from 'pisces';
+import Gemini from 'gemini-scrollbar';
+
+const gemini = new Gemini({
+  element: document.querySelector('.scrolling-box'),
+}).create();
+
+/* the key part to make it compatible with gemini-scrollbar */
+const pisces = new Pisces(gemini.getViewElement());
+
+/* simple example, check the available methods on the API section */
+pisces.scrollToPosition({
+  x: 0,
+  y: 200
+});
+```
+
+
 ## License
 MIT © [Noel Delgado](http://pixelia.me/)
+
+[gemini-scrollbar]: https://github.com/noeldelgado/gemini-scrollbar
