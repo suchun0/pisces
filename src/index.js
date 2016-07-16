@@ -155,15 +155,25 @@ export default class Pisces {
     }
 
     const start = this.start;
+    const max = this.max;
     let e = el;
     let _top = 0;
     let _left = 0;
+    let x = 0;
+    let y = 0;
+
     do {
       _left += e.offsetLeft;
       _top += e.offsetTop;
       e = e.parentElement;
     } while (e !== this.scrollingBox);
 
-    return { x: (_left - start.x), y: (_top - start.y) };
+    x = (_left - start.x);
+    y = (_top - start.y);
+
+    if (x > max.x) x = max.x;
+    if (y > max.y) y = max.y;
+
+    return { x, y };
   }
 };
