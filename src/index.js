@@ -59,8 +59,11 @@ export default class Pisces {
     if (util.isFunction(options.callback)) options.callback();
   }
 
-  _getEndCoordinateValue(coord, start) {
-    if (util.isNumber(coord)) return (Number(coord) - start);
+  _getEndCoordinateValue(coord, start, max) {
+    if (util.isNumber(coord)) {
+      if (coord > max) coord = max;
+      return (coord - start);
+    }
     else if (util.isRelativeValue(coord)) return (start - (start - ~~coord));
     return 0;
   }
@@ -100,10 +103,11 @@ export default class Pisces {
 
   scrollToPosition(coords, options) {
     const start = this.start;
+    const max = this.max;
     let x = (coords.hasOwnProperty('x')) ? coords.x : start.x;
     let y = (coords.hasOwnProperty('y')) ? coords.y : start.y;
-    x = this._getEndCoordinateValue(x, start.x);
-    y = this._getEndCoordinateValue(y, start.y);
+    x = this._getEndCoordinateValue(x, start.x, max.x);
+    y = this._getEndCoordinateValue(y, start.y, max.y);
     const end = { x, y };
     return this._animate({ start, end }, options);
   }
