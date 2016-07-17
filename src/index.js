@@ -64,7 +64,14 @@ export default class Pisces {
       if (coord > max) coord = max;
       return (coord - start);
     }
-    else if (util.isRelativeValue(coord)) return (start - (start - ~~coord));
+
+    if (util.isRelativeValue(coord)) {
+      const value = (start - (start - ~~coord));
+      if ((start + value) > max) return (max - start);
+      else if ((start + value) < 0) return -start;
+      return value;
+    }
+
     return 0;
   }
 
