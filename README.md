@@ -12,8 +12,7 @@ $ npm i pisces -S
 
 ## Usage
 ```js
-const Pisces = require('Pisces');
-
+import Pisces from 'pisces';
 const pisces = new Pisces();
 
 pisces.scrollToElement(document.querySelector('.some-element'));
@@ -34,7 +33,7 @@ If you want to register any other scrolling element, you should pass a valid `DO
 
 | type | default |
 |:-----|:-----|:--------|:------------|
-| `DOMElement` | `document.scrollingElement` or `document.documentElement` or `document.body` |
+| `DOMElement` | `document.scrollingElement` || `document.documentElement` || `document.body` |
 
 #### options
 
@@ -131,7 +130,7 @@ If you pass an options hash, it will use that options just for this iteration wi
 
 Overrides the `options` set during instantiation.
 
-```
+```js
 pisces.set('duration', 200);
 pisces.set('easing', someCustomEasingFunction);
 pisces.set('callback', someCallbackToRunOnComplete);
@@ -203,10 +202,8 @@ const gemini = new Gemini({
 const pisces = new Pisces(gemini.getViewElement());
 
 /* simple example, check the available methods on the API section */
-pisces.scrollToPosition({
-  x: 0,
-  y: 200
-});
+const coords = { x: 0, y: 200 };
+pisces.scrollToPosition(coords);
 ```
 
 
