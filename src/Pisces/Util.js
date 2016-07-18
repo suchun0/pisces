@@ -15,6 +15,15 @@ export function getRoot() {
   return ((end > start) ? html : document.body);
 }
 
+export function assign(target, ...sources) {
+  [...sources].map(source => {
+    return Object.keys(source).map(propertyName => {
+      target[propertyName] = source[propertyName];
+    });
+  });
+  return target;
+}
+
 export function isElement(el) {
   return (el instanceof HTMLElement);
 }

@@ -30,12 +30,12 @@ export default class Pisces {
 
   constructor(scrollingBox = util.getRoot(), options = {}) {
     this.scrollingBox = scrollingBox;
-    this.options = Object.assign({}, Pisces.defaults(), options);
+    this.options = util.assign({}, Pisces.defaults(), options);
   }
 
   _animate(coords, options = {}) {
     const _this = this;
-    const _options = Object.assign({}, _this.options, options);
+    const _options = util.assign({}, _this.options, options);
 
     const start = performance.now();
     const step = function (timestamp) {
