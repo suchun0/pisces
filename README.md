@@ -1,9 +1,26 @@
-# pisces
-
-[![npm-image](https://img.shields.io/npm/v/pisces.svg)](https://www.npmjs.com/package/pisces)
-![license-image](https://img.shields.io/npm/l/pisces.svg)
+# pisces [![npm-image](https://img.shields.io/npm/v/pisces.svg)](https://www.npmjs.com/package/pisces) ![license-image](https://img.shields.io/npm/l/pisces.svg)
 
 Scroll to specific locations of any scrolling box in a smooth fashion.
+
+* [Install](#install)
+* [Usage](#usage)
+* [API](#api)
+	* [params](#api-params)
+	* [scrollTo](#piscesscrolltotarget-options)
+	* [scrollToElement](#piscesscrolltoelementdomelement-options)
+	* [scrollToPosition](#piscesscrolltopositioncoordinates-options)
+	* [scrollToTop](#piscesscrolltotopoptions)
+	* [scrollToRight](#piscesscrolltorightoptions)
+	* [scrollToBottom](#piscesscrolltobottomoptions)
+	* [scrollToLeft](#piscesscrolltoleftoptions)
+	* [set](#piscessetkey-value)
+	* [cancel](#piscescancel)
+	* [getElementOffset](#piscesgetelementoffsetdomelement)
+* [Examples](#examples)
+	* [Provide a different easing function](#provide-a-different-easing-function)
+	* [Override options per method call](#override-options-per-method-call)
+	* [Using it with gemini-scrollbar](#using-it-with-gemini-scrollbar)
+* [License](#license)
 
 ## Install
 ```sh
@@ -22,7 +39,7 @@ pisces.scrollToBottom();
 ```
 
 ## API
-### Pisces([scrollingBox], [options])
+<h3 id="api-params">Pisces([scrollingBox], [options])</h3>
 
 Creates a new instance. You should create a new instance per any scrolling element you want to interact with.
 
@@ -33,7 +50,7 @@ If you want to register any other scrolling element, you should pass a valid `DO
 
 | type | default |
 |:-----|:-----|:--------|:------------|
-| `DOMElement` | `document.scrollingElement` || `document.documentElement` || `document.body` |
+| `DOMElement` | `scrollingElement` or `documentElement` or `body` |
 
 #### options
 
