@@ -2,6 +2,7 @@
 
 Scroll to specific locations of any scrolling box in a smooth fashion.
 
+## Table of Contents
 * [Install](#install)
 * [Usage](#usage)
 * [API](#api)
