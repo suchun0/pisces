@@ -4,7 +4,8 @@ Scroll to specific locations of any scrolling box in a smooth fashion.
 
 ## Table of Contents
 * [Install](#install)
-* [Usage](#usage)
+* [Basic Usage](#usage)
+* [Polyfills](#polyfills)
 * [API](#api)
 	* [params](#api-params)
 	* [scrollTo](#piscesscrolltotarget-options)
@@ -28,7 +29,7 @@ Scroll to specific locations of any scrolling box in a smooth fashion.
 $ npm i pisces -S
 ```
 
-## Usage
+<h2 id="usage">Basic Usage</h2>
 ```js
 import Pisces from 'pisces';
 const pisces = new Pisces();
@@ -38,6 +39,13 @@ pisces.scrollToPosition({y: 100});
 pisces.scrollToPosition({x: '-10', y: '+300'});
 pisces.scrollToBottom();
 ```
+
+## Polyfills
+If you need to support **IE9-** make sure to add the following polyfills:
+
+* requestAnimationFrame
+* cancelAnimationFrame
+* performance.now
 
 ## API
 <h3 id="api-params">Pisces([scrollingBox], [options])</h3>
