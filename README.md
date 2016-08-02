@@ -67,7 +67,7 @@ If you want to register any other scrolling element, you should pass a valid `DO
 |:-----|:-----|:--------|:------------|
 | duration | `Number` | 800 *(milliseconds)* |  How many milliseconds the animation should run for. |
 | easing | `Function` | `x => Math.sqrt(1-(--x*x))` | An easing function takes an `x` value, representing progress along a timeline (between 0 and 1), and returns a `y` value. |
-| callback | `Function` | `null` | The function to run the animation is completed.
+| onComplete | `Function` | `null` | The function to run the animation is completed.
 
 ### pisces.scrollTo(target, options)
 
@@ -159,7 +159,7 @@ Overrides the `options` set during instantiation.
 ```js
 pisces.set('duration', 200);
 pisces.set('easing', someCustomEasingFunction);
-pisces.set('callback', someCallbackToRunOnComplete);
+pisces.set('onComplete', someFunctionToRunOnComplete);
 ```
 
 ### pisces.cancel()

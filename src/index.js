@@ -4,8 +4,8 @@ export default class Pisces {
   static defaults() {
     const duration = 600;
     const easing = t => Math.sqrt(1 - (--t * t));
-    const callback = null;
-    return { duration, easing, callback };
+    const onComplete = null;
+    return { duration, easing, onComplete };
   }
 
   get start() {
@@ -56,7 +56,7 @@ export default class Pisces {
     this.cancel();
     this.scrollingBox.scrollTop = (coords.start.y + coords.end.y);
     this.scrollingBox.scrollLeft = (coords.start.x + coords.end.x);
-    if (util.isFunction(options.callback)) options.callback();
+    if (util.isFunction(options.onComplete)) options.onComplete();
   }
 
   _getEndCoordinateValue(coord, start, max) {
