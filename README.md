@@ -7,29 +7,31 @@ Scroll to specific locations of any scrolling box in a smooth fashion.
 * [Basic Usage](#usage)
 * [Polyfills](#polyfills)
 * [API](#api)
-	* [params](#api-params)
-	* [scrollTo](#piscesscrolltotarget-options)
-	* [scrollToElement](#piscesscrolltoelementdomelement-options)
-	* [scrollToPosition](#piscesscrolltopositioncoordinates-options)
-	* [scrollToTop](#piscesscrolltotopoptions)
-	* [scrollToRight](#piscesscrolltorightoptions)
-	* [scrollToBottom](#piscesscrolltobottomoptions)
-	* [scrollToLeft](#piscesscrolltoleftoptions)
-	* [set](#piscessetkey-value)
-	* [cancel](#piscescancel)
-	* [getElementOffset](#piscesgetelementoffsetdomelement)
+  * [params](#api-params)
+  * [scrollTo](#piscesscrolltotarget-options)
+  * [scrollToElement](#piscesscrolltoelementdomelement-options)
+  * [scrollToPosition](#piscesscrolltopositioncoordinates-options)
+  * [scrollToTop](#piscesscrolltotopoptions)
+  * [scrollToRight](#piscesscrolltorightoptions)
+  * [scrollToBottom](#piscesscrolltobottomoptions)
+  * [scrollToLeft](#piscesscrolltoleftoptions)
+  * [set](#piscessetkey-value)
+  * [cancel](#piscescancel)
+  * [getElementOffset](#piscesgetelementoffsetdomelement)
 * [Examples](#examples)
-	* [Provide a different easing function](#provide-a-different-easing-function)
-	* [Override options per method call](#override-options-per-method-call)
-	* [Using it with gemini-scrollbar](#using-it-with-gemini-scrollbar)
+  * [Provide a different easing function](#provide-a-different-easing-function)
+  * [Override options per method call](#override-options-per-method-call)
+  * [Using it with gemini-scrollbar](#using-it-with-gemini-scrollbar)
 * [License](#license)
 
 ## Install
+
 ```sh
-$ npm i pisces -S
+$ npm i pisces -save
 ```
 
 <h2 id="usage">Basic Usage</h2>
+
 ```js
 import Pisces from 'pisces';
 const pisces = new Pisces();
@@ -41,6 +43,7 @@ pisces.scrollToBottom();
 ```
 
 ## Polyfills
+
 If you need to support **IE9-** make sure to add the following polyfills:
 
 * requestAnimationFrame
@@ -48,11 +51,13 @@ If you need to support **IE9-** make sure to add the following polyfills:
 * performance.now
 
 ## API
+
 <h3 id="api-params">Pisces([scrollingBox], [options])</h3>
 
 Creates a new instance. You should create a new instance per any scrolling element you want to interact with.
 
 #### scrollingBox
+
 Because of browser inconsistencies, if you want to scroll the default page (`window`, `document`, `body`), leave this option empty or pass `null`, the library will try pick the right one for the browser.
 
 If you want to register any other scrolling element, you should pass a valid `DOMElement`.
@@ -231,7 +236,6 @@ const pisces = new Pisces(gemini.getViewElement());
 const coords = { x: 0, y: 200 };
 pisces.scrollToPosition(coords);
 ```
-
 
 ## License
 MIT © [Noel Delgado](http://pixelia.me/)
