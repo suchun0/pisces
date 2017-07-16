@@ -27,18 +27,19 @@ Scroll to specific locations of any scrolling box in a smooth fashion.
 ## Install
 
 ```sh
-$ npm i pisces -save
+npm i pisces --save
 ```
 
 <h2 id="usage">Basic Usage</h2>
 
 ```js
 import Pisces from 'pisces';
+
 const pisces = new Pisces();
 
 pisces.scrollToElement(document.querySelector('.some-element'));
-pisces.scrollToPosition({y: 100});
-pisces.scrollToPosition({x: '-10', y: '+300'});
+pisces.scrollToPosition({ y: 100 });
+pisces.scrollToPosition({ x: '-10', y: '+300' });
 pisces.scrollToBottom();
 ```
 
@@ -54,9 +55,9 @@ If you need to support **IE9-** make sure to add the following polyfills:
 
 <h3 id="api-params">Pisces([scrollingBox], [options])</h3>
 
-Creates a new instance. You should create a new instance per any scrolling element you want to interact with.
+Constructor. Creates a new Pisces instance (you should create a new instance per any different scrolling element you want to interact with).
 
-#### scrollingBox
+#### @param scrollingBox
 
 Because of browser inconsistencies, if you want to scroll the default page (`window`, `document`, `body`), leave this option empty or pass `null`, the library will try pick the right one for the browser.
 
@@ -66,7 +67,7 @@ If you want to register any other scrolling element, you should pass a valid `DO
 |:-----|:--------|
 | `DOMElement` | `scrollingElement` or `documentElement` or `body` |
 
-#### options
+#### @param options
 
 | name | type | default | description |
 |:-----|:-----|:--------|:------------|
@@ -74,27 +75,26 @@ If you want to register any other scrolling element, you should pass a valid `DO
 | easing | `Function` | `x => Math.sqrt(1-(--x*x))` | An easing function takes an `x` value, representing progress along a timeline (between 0 and 1), and returns a `y` value. |
 | onComplete | `Function` | `null` | The function to run the animation is completed. |
 
+### Methods
 ### pisces.scrollTo(target, options)
 
 Proxy for `scrollToElement` or `scrollToPosition`.
 
-This method allows you to pass a querySelector string to scroll to a specific element (eg. ".my-element"). Or to pass a hash with `x` and/or `y` keys to scroll to absolute or relatives points of the scrolling box.
+This method allows you to pass a querySelector string to scroll to a specific element (e.g. ".my-element"). Or to pass a hash with `x` and/or `y` keys to scroll to absolute or relatives points of the scrolling box.
 
-*If you know what you want you are doing please use the adequate method instead, see the other methods below.*
+*If you know what you are doing please use the adequate method instead, see the other methods below.*
 
 ### pisces.scrollToElement(domElement, [options])
 
 Scrolls to an existing element inside your scrollingBox.
 
 ```js
-const someElementReference = document.querySelector('.footer');
-...
-pisces.scrollToElement(someElementReference);
+pisces.scrollToElement(pisces.scrollingBox.querySelector('.footer'));
 ```
 
 The `domElement` param is required and should be valid `DOMElement`.
 
-If you pass an options hash, it will use that options just for this iteration without overriding the defaults.
+If you pass the `options` hash param, it will use those options just for that iteration without overriding its defaults.
 
 ### pisces.scrollToPosition(coordinates, [options])
 
@@ -115,7 +115,7 @@ The `coordinates` params is required.
 
 It should be a hash with an `x` and/or `y` key(s).
 
-If you pass an options hash, it will use that options just for this iteration without overriding the defaults.
+If you pass the `options` hash param, it will use those options just for that iteration without overriding its defaults.
 
 ### pisces.scrollToTop([options])
 
@@ -125,7 +125,7 @@ Scrolls to the top position of the scrollingBox.
 pisces.scrollToTop();
 ```
 
-If you pass an options hash, it will use that options just for this iteration without overriding the defaults.
+If you pass the `options` hash param, it will use those options just for that iteration without overriding its defaults.
 
 ### pisces.scrollToRight([options])
 
@@ -135,7 +135,7 @@ Scrolls to the far right position of the scrollingBox.
 pisces.scrollToRight();
 ```
 
-If you pass an options hash, it will use that options just for this iteration without overriding the defaults.
+If you pass the `options` hash param, it will use those options just for that iteration without overriding its defaults.
 
 ### pisces.scrollToBottom([options])
 
@@ -145,7 +145,7 @@ Scrolls to the bottom position of the scrollingBox.
 pisces.scrollToBottom();
 ```
 
-If you pass an options hash, it will use that options just for this iteration without overriding the defaults.
+If you pass the `options` hash param, it will use those options just for that iteration without overriding its defaults.
 
 ### pisces.scrollToLeft([options])
 
@@ -155,7 +155,7 @@ Scrolls to the far left position of the scrollingBox.
 pisces.scrollToLeft();
 ```
 
-If you pass an options hash, it will use that options just for this iteration without overriding the defaults.
+If you pass the `options` hash param, it will use those options just for that iteration without overriding its defaults.
 
 ### pisces.set(key, value)
 
@@ -183,28 +183,32 @@ In case the passed `DOMElement` is inside the instance’s `scrollingBox` it wil
 
 ### Provide a different easing function
 
-If you are not happy with the default easing function provided (`Circular.Out`) you can tell which one to use during instantiation.
+If you are not happy with the default easing function provided (`Circular.Out`) you can pass a custom function or use one provided from another library. 
+
+Remember that an easing function should take an x value, representing progress along a timeline (between 0 and 1), and return a y value.
 
 ```js
 import Pisces from 'Pisces';
 import tween from 'tween.js';
 import eases from 'eases';
 
-const scrollingBoxA = document.querySelector('.scrollable-a');
-const piscesA = new Pisces(scrollingBoxA, {
+const piscesA = new Pisces(document.querySelector('.a'), {
   easing: tween.Easing.Back.InOut,
   duration: 1000
 });
 
-const scrollingBoxB = document.querySelector('.scrollable-b');
-const piscesB = new Pisces(scrollingBoxB, {
+const piscesB = new Pisces(document.querySelector('.b'), {
   easing: eases.elasticInOut
+});
+
+const piscesC = new Pisces(document.querySelector('.c'), {
+  easing: (x) => Math.sqrt(1-(--x*x))
 });
 ```
 
 ### Override options per method call
 
-If you need it you can change the options every time you call a method. This will not override the default options, but the use them just for this call. This can be useful for debugging, changing the `duration` and `easing` to see which combination feels better for you.
+If you need it you can change the options every time you call a method. This will not override the default options, but the use them just for this call. This can be useful for debugging, changing the `duration` and `easing` to see which combination works better for you.
 
 ```js
 import Pisces from 'Pisces';
@@ -226,7 +230,7 @@ import Pisces from 'pisces';
 import Gemini from 'gemini-scrollbar';
 
 const gemini = new Gemini({
-  element: document.querySelector('.scrolling-box'),
+  element: document.querySelector('.scrolling-box')
 }).create();
 
 /* the key part to make it compatible with gemini-scrollbar */
