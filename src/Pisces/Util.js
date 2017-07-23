@@ -2,19 +2,6 @@ const BODY = document.body;
 const relativeValueReg = new RegExp(/^(\-|\+)\d/);
 const numberReg = new RegExp(/^\d*\.?\d*$/);
 
-export function getRoot() {
-  /* Copyright (c) 2016 Benjamin De Cock
-   * https://github.com/bendc/anchor-scroll/blob/master/scroll.js
-   */
-  if ('scrollingElement' in document) return document.scrollingElement;
-  const html = document.documentElement;
-  const start = html.scrollTop;
-  html.scrollTop = start + 1;
-  const end = html.scrollTop;
-  html.scrollTop = start;
-  return ((end > start) ? html : document.body);
-}
-
 export function assign(target, ...sources) {
   [...sources].map(source => {
     return Object.keys(source).map(propertyName => {

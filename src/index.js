@@ -1,3 +1,4 @@
+import getScrollingElement from 'get-scrollingelement';
 import * as util from './Pisces/Util';
 
 export default class Pisces {
@@ -28,7 +29,7 @@ export default class Pisces {
     return { x, y };
   }
 
-  constructor(scrollingBox = util.getRoot(), options = {}) {
+  constructor(scrollingBox = getScrollingElement(), options = {}) {
     this.scrollingBox = scrollingBox;
     this.options = util.assign({}, Pisces.defaults(), options);
   }
