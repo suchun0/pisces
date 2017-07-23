@@ -3,6 +3,9 @@
   "version": "0.0.15",
   "description": "Scroll to specific locations of any scrolling box in a smooth fashion.",
   "main": "lib/index.js",
+  "files": [
+    "lib/index.js"
+  ],
   "scripts": {
     "build": "rollup -c",
     "prepublish": "npm run build"
