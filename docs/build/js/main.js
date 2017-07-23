@@ -8,7 +8,7 @@ function createCommonjsModule(fn, module) {
 	return module = { exports: {} }, fn(module, module.exports), module.exports;
 }
 
-var index$1 = createCommonjsModule(function (module, exports) {
+var index = createCommonjsModule(function (module, exports) {
 (function (global, factory) {
 	module.exports = factory();
 }(commonjsGlobal, (function () { 'use strict';
@@ -43,19 +43,6 @@ return index;
 var BODY = document.body;
 var relativeValueReg = new RegExp(/^(\-|\+)\d/);
 var numberReg = new RegExp(/^\d*\.?\d*$/);
-
-// export function getRoot() {
-//   /* Copyright (c) 2016 Benjamin De Cock
-//    * https://github.com/bendc/anchor-scroll/blob/master/scroll.js
-//    */
-//   if ('scrollingElement' in document) return document.scrollingElement;
-//   const html = document.documentElement;
-//   const start = html.scrollTop;
-//   html.scrollTop = start + 1;
-//   const end = html.scrollTop;
-//   html.scrollTop = start;
-//   return ((end > start) ? html : document.body);
-// }
 
 function assign(target) {
   var arguments$1 = arguments;
@@ -111,13 +98,8 @@ function isRelativeValue(value) {
   return relativeValueReg.test(value);
 }
 
-console.log(
-
-  index$1()
-
-);
 var Pisces = function Pisces(scrollingBox, options) {
-  if ( scrollingBox === void 0 ) { scrollingBox = index$1(); }
+  if ( scrollingBox === void 0 ) { scrollingBox = index(); }
   if ( options === void 0 ) { options = {}; }
 
   this.scrollingBox = scrollingBox;
@@ -314,7 +296,7 @@ Object.defineProperties( Pisces.prototype, prototypeAccessors );
 
 var version = "0.0.16";
 
-var index$2 = createCommonjsModule(function (module, exports) {
+var index$1 = createCommonjsModule(function (module, exports) {
 /**
  * gemini-scrollbar
  * @version 1.5.1
@@ -918,7 +900,7 @@ var textGradientSvg = createCommonjsModule(function (module, exports) {
 }));
 });
 
-var index$3 = createCommonjsModule(function (module, exports) {
+var index$2 = createCommonjsModule(function (module, exports) {
 /**
  * text-gradient v0.2.0
  * https://github.com/noeldelgado/text-gradient
@@ -1040,7 +1022,7 @@ var index$3 = createCommonjsModule(function (module, exports) {
 }));
 });
 
-var index$4 = createCommonjsModule(function (module, exports) {
+var index$3 = createCommonjsModule(function (module, exports) {
 /**
  * share-url v1.0.0
  * @link https://github.com/noeldelgado/share-url
@@ -2067,14 +2049,14 @@ versionElement = null;
 
 // set gradient text-gradient
 [].slice.call(document.querySelectorAll('.-grad')).forEach(function (i) {
-  new index$3(i, {
+  new index$2(i, {
     from: '#6B6ED8', to: 'rgb(74, 197, 195)'
   });
 }
                                                           );
 // init and cache
 var scrollingBox = document.querySelector('.demo-scrolling-box');
-var gemini = new index$2({
+var gemini = new index$1({
   element: scrollingBox,
   createElements: false,
   autoshow: 1
@@ -2117,12 +2099,12 @@ var t = {
   url: 'http://noeldelgado.github.io/pisces/',
   via: 'pixelia_me'
 };
-document.querySelector('.js-share-twitter').href = index$4.twitter(t);
+document.querySelector('.js-share-twitter').href = index$3.twitter(t);
 
 var f = {
   u: 'http://noeldelgado.github.io/pisces/'
 };
-document.querySelector('.js-share-facebook').href = index$4.facebook(f);
+document.querySelector('.js-share-facebook').href = index$3.facebook(f);
 
 
 function formSubmitHandler(ev) {
