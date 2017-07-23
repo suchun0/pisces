@@ -1,0 +1,36 @@
+.select {
+  display: inline-block;
+  position: relative;
+  color: color(var(--foreground) tint(50%));
+}
+
+select {
+  padding: 0 2rem 0 1rem;
+  width: 100%;
+  height: var(--ui-height);
+  color: inherit;
+  background-image: linear-gradient(var(--background), color(var(--background) shade(20%)));
+  border: 1px solid color(var(--background) shade(40%));
+  box-shadow:
+    inset 0 0 0 1px color(var(--background) tint(15%)),
+    0 20px 40px color(var(--background) shade(40%));
+  text-shadow: 0 -1px 0 #000;
+  border-radius: var(--ui-radius);
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+}
+
+.select::after {
+  content: "▾";
+  position: absolute;
+  color: var(--secondary);
+  top: -2px;
+  right: 1rem;
+  line-height: var(--ui-height);
+  pointer-events: none;
+}
+
+select:focus {
+  box-shadow: 0 0 5px 0 var(--foreground);
+}

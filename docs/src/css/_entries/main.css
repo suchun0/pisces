@@ -1,0 +1,154 @@
+/* @import "sanitize.css"; */
+/* @import "normalize.css"; */
+@import "basscss";
+@import "gemini-scrollbar/gemini-scrollbar.css";
+@import "./../components/select";
+@import "./../components/input";
+@import "./../components/button";
+
+:root {
+  --background: #0c182c;
+  --foreground: #6B6ED8;
+  --secondary: rgb(74, 197, 195);
+  --accent: #CE40AA;
+
+  /* --background: #14091a; */
+  /* --foreground: #6B6ED8; */
+  /* --secondary: rgb(74, 197, 195); */
+  /* --accent: #CE40AA; */
+
+  --ui-height: 30px;
+  --ui-radius: 2px;
+
+  /* --foreground: #84d8fd; */
+  /* --secondary: #fe879f; */
+
+  /* --background: #14091a; */
+  /* --foreground: #84d8fd; */
+  /* --secondary: #fe879f; */
+
+  /* --foreground: #39CCCC; */
+  /* --background: #0f0f0f; */
+
+  /* --foreground: #AACCFF; */
+  /* --background: #222233; */
+
+  /* --foreground: #fff; */
+  /* --background: #000; */
+
+  font-size: 14px;
+  line-height: 1.618;
+  font-family: Helvetica Neue,Helvetica,sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  font-weight: 500;
+}
+
+body {
+  background-color: var(--background);
+  color: color(var(--foreground) tint(50%));
+}
+
+a {color: var(--secondary)}
+
+h1 {font-size: 6rem}
+h2 {font-size: 2rem}
+h3 {font-size: 1.2rem}
+
+.wrapper {
+  width: 85%;
+  max-width: 960px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.logo-em {
+  vertical-align: sub;
+  line-height: 1;
+}
+
+.h {
+  color: color(var(--foreground) tint(80%));
+}
+
+.share-icon {
+  fill: var(--secondary);
+  width: 20px;
+  height: 20px;
+}
+
+.demo-scrolling-box {
+  background-color: color(var(--background) shade(10%));
+  box-shadow:
+    0 0 0 1px color(var(--background) tint(6%)),
+    0 20px 40px color(var(--background) shade(30%));
+  color: color(var(--background) tint(10%));
+  border-radius: 2px;
+  overflow: auto;
+  height: 500px;
+
+  & ul {
+    counter-reset: items;
+    width: 2000px;
+  }
+
+  & li {
+    float: left;
+    width: 200px;
+    height: 150px;
+    border: 1px solid color(var(--background) tint(6%));
+
+    &::before {
+      counter-increment: items;
+      content: counter(items);
+      display: block;
+      font-size: 2.5rem;
+      padding-top: 3.5rem;
+      font-weight: bold;
+      text-align: center;
+    }
+  }
+}
+
+.gm-scrollbar {
+  right: 4px;
+  bottom: 4px;
+
+  &.-vertical {top: 4px}
+  &.-horizontal {left: 4px}
+
+  & .thumb {
+    background-color: color(var(--background) tint(6%));
+
+    &:hover,
+    &:active {background-color: color(var(--background) tint(10%))}
+  }
+}
+
+.github-corner {
+  position: fixed;
+  top: 0;
+  right: 0;
+
+  & > svg {
+    display: block;
+    border: 0;
+    fill: var(--secondary);
+    color: var(--background);
+  }
+
+  &:hover .octo-arm {animation: octocat-wave 560ms ease-in-out}
+}
+
+@keyframes octocat-wave{
+  0%, 100% {transform:rotate(0)}
+  20%, 60% {transform:rotate(-25deg)}
+  40%, 80% {transform:rotate(10deg)}
+}
+@media (max-width:500px) {
+  .github-corner:hover .octo-arm{animation:none}
+  .github-corner .octo-arm {animation:octocat-wave 560ms ease-in-out}
+}

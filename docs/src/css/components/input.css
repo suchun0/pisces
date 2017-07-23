@@ -1,0 +1,15 @@
+.input {
+  width: 50px;
+  height: var(--ui-height);
+  border: none;
+  border-bottom: 1px solid var(--foreground);
+  background-color: var(--background);
+  color: color(var(--foreground) tint(50%));
+  box-shadow: 0 20px 40px color(var(--background) shade(40%));
+  font-weight: bold;
+  outline: none;
+}
+
+.demo-input:focus {
+  background-color: color(var(--foreground) alpha(10%));
+}
