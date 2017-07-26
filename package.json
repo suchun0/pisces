@@ -1,6 +1,6 @@
 {
   "name": "pisces",
-  "version": "0.0.16",
+  "version": "0.0.17",
   "description": "Scroll to specific locations of any scrolling box in a smooth fashion.",
   "main": "lib/index.js",
   "files": [
@@ -30,9 +30,10 @@
   },
   "homepage": "https://github.com/noeldelgado/pisces#readme",
   "devDependencies": {
-    "buble": "^0.8.5",
-    "rollup": "^0.26.3",
-    "rollup-plugin-buble": "^0.8.0"
+    "buble": "0.8.5",
+    "rollup": "0.26.3",
+    "rollup-plugin-buble": "0.8.0",
+    "rollup-plugin-json": "2.3.0"
   },
   "dependencies": {
     "get-scrollingelement": "0.1.0"

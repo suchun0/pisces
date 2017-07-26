@@ -1,5 +1,6 @@
 import getScrollingElement from 'get-scrollingelement';
 import * as util from './Pisces/Util';
+import { version } from '../package.json';
 
 export default class Pisces {
   static defaults() {
@@ -185,3 +186,5 @@ export default class Pisces {
     return { x, y };
   }
 };
+
+Pisces.VERSION = version;
