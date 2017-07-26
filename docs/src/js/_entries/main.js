@@ -1,10 +1,11 @@
-import Pisces from '../../../../src';
-import { version } from '../../../../package.json';
+import Pisces from '../../../../lib';
 
 import Gemini from 'gemini-scrollbar';
 import TextGradient from 'text-gradient';
 import ShareUrl from 'share-url';
 import Tween from 'tween.js';
+
+const version = Pisces.VERSION;
 
 // print pisces version
 let versionElement = [].slice.call(document.querySelectorAll('.version'));
