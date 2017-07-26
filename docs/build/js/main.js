@@ -107,8 +107,6 @@ var index$1 = createCommonjsModule(function (module, exports) {
 
 	var version = "0.0.17";
 
-	console.log( getScrollingElement() );
-
 	var Pisces = function Pisces(scrollingBox, options) {
 	  if ( scrollingBox === void 0 ) { scrollingBox = getScrollingElement(); }
 	  if ( options === void 0 ) { options = {}; }
