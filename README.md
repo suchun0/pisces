@@ -2,6 +2,8 @@
 
 Scroll to specific locations of any scrolling box in a smooth fashion.
 
+https://noeldelgado.github.io/pisces/
+
 ## Table of Contents
 * [Install](#install)
 * [Basic Usage](#usage)
