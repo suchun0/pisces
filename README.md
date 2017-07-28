@@ -61,7 +61,7 @@ Constructor. Creates a new Pisces instance (you should create a new instance per
 
 #### @param scrollingBox
 
-Because of browser inconsistencies, if you want to scroll the default page (`window`, `document`, `body`), leave this option empty or pass `null`, the library will try pick the right one for the browser.
+Because of browser inconsistencies, if you want to scroll the default page (`window`, `document`, `body`), leave this option empty or pass `null` if you are passing additional `options`, [this module][get-scrollingelement] will try pick the right one for the current browser.
 
 If you want to register any other scrolling element, you should pass a valid `DOMElement`.
 
@@ -247,3 +247,4 @@ pisces.scrollToPosition(coords);
 MIT © [Noel Delgado](http://pixelia.me/)
 
 [gemini-scrollbar]: https://github.com/noeldelgado/gemini-scrollbar
+[get-scrollingelement]: https://github.com/noeldelgado/get-scrollingelement
