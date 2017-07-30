@@ -56,7 +56,6 @@
     "tween.js": "^16.3.4"
   },
   "devDependencies": {
-    "buble": "0.15.2",
     "chokidar": "1.7.0",
     "postcss": "5.1.0",
     "postcss-cssnext": "2.5.2",
