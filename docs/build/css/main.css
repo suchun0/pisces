@@ -534,14 +534,12 @@
 }
 .gm-scrollbar-container.gm-autoshow .gm-scrollbar{
   opacity:0;
-  -webkit-transition:opacity 120ms ease-out;
   transition:opacity 120ms ease-out;
 }
 .gm-scrollbar-container.gm-autoshow:hover > .gm-scrollbar,
 .gm-scrollbar-container.gm-autoshow:active > .gm-scrollbar,
 .gm-scrollbar-container.gm-autoshow:focus > .gm-scrollbar{
   opacity:1;
-  -webkit-transition:opacity 340ms ease-out;
   transition:opacity 340ms ease-out;
 }
 .gm-resize-trigger{
@@ -567,7 +565,6 @@ select{
   width:100%;
   height:30px;
   color:inherit;
-  background-image:-webkit-linear-gradient(#0c182c, rgb(10, 19, 35));
   background-image:linear-gradient(#0c182c, rgb(10, 19, 35));
   border:1px solid rgb(7, 14, 26);
   box-shadow:inset 0 0 0 1px rgb(48, 59, 76),
@@ -613,10 +610,6 @@ select:focus{
   color:rgb(225, 226, 247);
   border-radius:2px;
   background-color:#6B6ED8;
-  background-image:-webkit-linear-gradient(
-    #6B6ED8,
-    rgb(86, 88, 173)
-  );
   background-image:linear-gradient(
     #6B6ED8,
     rgb(86, 88, 173)
@@ -628,10 +621,6 @@ select:focus{
   cursor:pointer;
 }
 .button:hover{
-  background-image:-webkit-linear-gradient(
-    rgb(122, 125, 220),
-    rgb(96, 99, 194)
-  );
   background-image:linear-gradient(
     rgb(122, 125, 220),
     rgb(96, 99, 194)
