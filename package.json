@@ -1,12 +1,12 @@
 {
   "name": "pisces",
-  "version": "0.0.18",
+  "version": "0.0.19",
   "description": "Scroll to specific locations of any scrolling box in a smooth fashion.",
   "main": "lib/index.js",
   "module": "lib/index.es.js",
   "files": [
     "lib/index.js",
-    "src/index.js"
+    "lib/index.es.js"
   ],
   "scripts": {
     "build": "rollup -c",
