@@ -1,4 +1,4 @@
-import Pisces from '../../../../lib';
+import Pisces from '../../../../';
 
 import Gemini from 'gemini-scrollbar';
 import TextGradient from 'text-gradient';
