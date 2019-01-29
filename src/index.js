@@ -43,8 +43,9 @@ export default class Pisces {
     const step = function (timestamp) {
       const elapsed = Math.abs(timestamp - start);
       const progress = _options.easing(elapsed / _options.duration);
-      _this.scrollingBox.scrollTop = (coords.start.y + coords.end.y * progress);
-      _this.scrollingBox.scrollLeft = (coords.start.x + coords.end.x * progress);
+      const x = coords.start.x + coords.end.x * progress;
+      const y = coords.start.y + coords.end.y * progress;
+      _this._setScroll(x, y);
       if (elapsed > _options.duration) _this._completed(coords, _options);
       else _this._RAF = requestAnimationFrame(step);
     };
@@ -56,8 +57,7 @@ export default class Pisces {
 
   _completed(coords, options) {
     this.cancel();
-    this.scrollingBox.scrollTop = (coords.start.y + coords.end.y);
-    this.scrollingBox.scrollLeft = (coords.start.x + coords.end.x);
+    this._setScroll(coords.start.x + coords.end.x, coords.start.y + coords.end.y);
     if (util.isFunction(options.onComplete)) options.onComplete();
   }
 
@@ -75,6 +75,13 @@ export default class Pisces {
     }
 
     return 0;
+  }
+
+  _setScroll(x = 0, y = 0) {
+    const { scrollingBox } = this;
+    const { scrollTop: currentScrollTop, scrollLeft: currentScrollLeft } = scrollingBox;
+    if (x !== currentScrollLeft) scrollingBox.scrollLeft = x;
+    if (y !== currentScrollTop) scrollingBox.scrollTop = y;
   }
 
   scrollTo(target = null, options) {
